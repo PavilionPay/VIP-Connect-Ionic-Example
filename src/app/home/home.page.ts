@@ -12,6 +12,6 @@ export class HomePage {
   constructor() {}
 
   async launchVIPC() {
-    window.location.href = `${environment.vipc}/sdk?mode=deposit#${environment.devTestOperator.sessionId}`;
+    window.open(`${environment.vipc}/sdk?mode=deposit#${environment.devTestOperator.sessionId}`, '_blank');
   }
 }
