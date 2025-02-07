@@ -21,7 +21,7 @@ public class VIPCPlugin: CAPPlugin, CAPBridgedPlugin {
     let urlString = call.getString("url") ?? ""
     let url = URL(string: urlString)!
     DispatchQueue.main.async {
-      let vc = ASWebAuthenticationSession(url: url, callbackURLScheme: "closevip") { url, error in
+      let vc = ASWebAuthenticationSession(url: url, callbackURLScheme: "closevip") { resultUrl, error in
         if let e = error as? ASWebAuthenticationSessionError, e.code == ASWebAuthenticationSessionError.canceledLogin {
           // session was cancelled by user, but transaction may still have completed successfully if the user cancelled
           // the session after the transaction was complete.
@@ -29,10 +29,11 @@ public class VIPCPlugin: CAPPlugin, CAPBridgedPlugin {
           return
         }
         
-        if url?.absoluteString.contains("done") == true {
+        if resultUrl?.absoluteString.contains("done") == true {
           // transaction completed successfully, and the session was automatically dismissed.
           print("Successful transaction")
-          call.resolve(["url" : url?.absoluteString ?? ""])
+          print(resultUrl?.absoluteString ?? "")
+          call.resolve(["url" : resultUrl?.absoluteString ?? ""])
         }
       }
       vc.presentationContextProvider = self

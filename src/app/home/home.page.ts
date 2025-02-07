@@ -5,7 +5,7 @@ import { Platform } from '@ionic/angular';
 import { registerPlugin } from '@capacitor/core';
 
 export interface VIPCPlugin {
-    start(options: { url: string }): Promise<{ value: string }>;
+    start(options: { url: string }): Promise<{ url: string }>;
 }
 
 const VIPCPlugin = registerPlugin<VIPCPlugin>('VIPCPlugin');
@@ -22,21 +22,13 @@ export class HomePage {
   constructor(public platform: Platform) {}
 
   async launchVIPC() {
-    let url = `${environment.vipc}/sdk?mode=deposit#${environment.devTestOperator.sessionId}`;
-
-    if (this.platform.is('android')) { 
-      // await InAppBrowser.openInSystemBrowser({ 
-      //   url:'https://qa.api-gaming.paviliononline.io/sdk?mode=deposit#0502bf21-32bd-49e4-8f2c-e7bec67c7676',
-      //   options: DefaultSystemBrowserOptions
-      // });
-      // await InAppBrowser.addListener('browserClosed', () => {
-      //   console.log('Browser closed');
-      // });
-    }
+    let vipConnectUrl = `${environment.vipc}/sdk?mode=deposit#${environment.devTestOperator.sessionId}`;
 
     if (this.platform.is('ios')) {
-      const { value } = await VIPCPlugin.start({ url: 'https://qa.api-gaming.paviliononline.io/sdk?mode=deposit#1d9cd474-75a0-4220-9704-761261afe988' }); 
-      console.log(value);
+      const { url } = await VIPCPlugin.start({ url: vipConnectUrl }); 
+      const urlParams = new URLSearchParams(url.split('?')[1]);
+      const transactionId = urlParams.get('transactionId');
+      console.log(transactionId);
     }
   }
 }
