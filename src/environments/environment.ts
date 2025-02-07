@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  vipc: 'https://dev.api-gaming.paviliononline.io',
+  devTestOperator: {
+    sessionId: '' // Use session-id here
+  }
 };
 
 /*
