@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/angular/standalone';
 import { environment } from 'src/environments/environment';
 import { Platform } from '@ionic/angular';
+import { Browser } from '@capacitor/browser';
 import { registerPlugin } from '@capacitor/core';
 
 export interface VIPCPlugin {
@@ -29,6 +30,11 @@ export class HomePage {
       const urlParams = new URLSearchParams(url.split('?')[1]);
       const transactionId = urlParams.get('transactionId');
       console.log(transactionId);
+    }
+    if (this.platform.is('android')) {
+      await Browser.open({
+        url: vipConnectUrl
+      });
     }
   }
 }
