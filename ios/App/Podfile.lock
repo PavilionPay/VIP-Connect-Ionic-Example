@@ -6,27 +6,18 @@ PODS:
   - CapacitorCordova (7.0.1)
   - CapacitorHaptics (7.0.0):
     - Capacitor
-  - CapacitorInappbrowser (2.0.0):
-    - Capacitor
-    - OSInAppBrowserLib (~> 1.0)
   - CapacitorKeyboard (7.0.0):
     - Capacitor
   - CapacitorStatusBar (7.0.0):
     - Capacitor
-  - OSInAppBrowserLib (1.0.0)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorHaptics (from `../../node_modules/@capacitor/haptics`)"
-  - "CapacitorInappbrowser (from `../../node_modules/@capacitor/inappbrowser`)"
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
-
-SPEC REPOS:
-  trunk:
-    - OSInAppBrowserLib
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -37,8 +28,6 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorHaptics:
     :path: "../../node_modules/@capacitor/haptics"
-  CapacitorInappbrowser:
-    :path: "../../node_modules/@capacitor/inappbrowser"
   CapacitorKeyboard:
     :path: "../../node_modules/@capacitor/keyboard"
   CapacitorStatusBar:
@@ -49,11 +38,9 @@ SPEC CHECKSUMS:
   CapacitorApp: 9cb31064a6c6bb2b1438583733a7bf45557fc1da
   CapacitorCordova: 63d476958d5022d76f197031e8b7ea3519988c64
   CapacitorHaptics: 7be406a91e4eb87287f321c6c68e1709d6837b3a
-  CapacitorInappbrowser: ac3d26121a7fe3ed1c189c78b6d80f41af7be077
   CapacitorKeyboard: 4db71e694e7afb5d7c0be09b05495c19f7d6c914
   CapacitorStatusBar: a8c4c83ed2e973bdafb979e80e4b00d027832cb7
-  OSInAppBrowserLib: c3d0b21a0c8b6d81e69117ad08bb6b8a4849c4e1
 
-PODFILE CHECKSUM: 123a4e8b61341ef024ed37e815c02ef99484cea6
+PODFILE CHECKSUM: f8c95c38f42283ff8d7c6bf6fa1435ecdce85ae9
 
 COCOAPODS: 1.16.2
