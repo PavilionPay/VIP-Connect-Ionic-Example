@@ -12,7 +12,7 @@ to [create a patron session](https://developer.vippreferred.com/APIS/SDK/create-
 the values provided to you by Pavilion.
 
 
-### iOS
+## iOS
 After getting a session id, [launch the VIP SDK web component via URL](https://developer.vippreferred.com/integration-steps/invoke-web-component) inside
 an [`ASWebAuthenticationSession`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession). 
 This can be done using the plugin provided in this example code or with any other plugin that uses `ASWebAuthenticationSession`.
@@ -20,10 +20,21 @@ This can be done using the plugin provided in this example code or with any othe
 VIP Connect uses [Finicity Connect WebSDK](https://developer.mastercard.com/open-banking-us/documentation/connect/integrating/webviews/android-webviews/) or [Plaid Hosted Link](https://plaid.com/docs/link/hosted-link/) to securely connect your customer\'s bank accounts with VIP Connect; launching
 the VIP Connect SDK inside an `ASWebAuthenticationSession` is necessary to provide the best experience to your customers. 
 
-## Returning to the app from VIP Connect
+### Returning to the iOS app from VIP Connect
 
 Upon completion or cancellation, VIP Connect will navigate to the address at the `returnURL` param passed during [session creation](https://developer.vippreferred.com/APIS/SDK/create-patron-session). 
 If the transaction was successful, a URL with a transaction ID will be passed back to the caller. 
+
+## Android
+After getting a session id, [launch the VIP SDK web component via URL](https://developer.vippreferred.com/integration-steps/invoke-web-component) inside
+a Chrome Custom Tab. In this example the Chrome Custom Tab is instatiate using the `Browser` Capacitor plugin.
+
+VIP Connect uses [Finicity Connect WebSDK](https://developer.mastercard.com/open-banking-us/documentation/connect/integrating/webviews/android-webviews/) or [Plaid Hosted Link](https://plaid.com/docs/link/hosted-link/) to securely connect your customer\'s bank accounts with VIP Connect; launching
+the VIP Connect SDK inside a Chrome Custom Tab is necessary to provide the best experience to your customers. 
+
+### Returning to the Android app from VIP Connect
+
+Upon completion or cancellation, VIP Connect will navigate to the address at the `returnURL` param passed during [session creation](https://developer.vippreferred.com/APIS/SDK/create-patron-session) and the Chrome Custom Tab will close. 
 
 ## Running the sample app
 
@@ -32,3 +43,5 @@ obtained during operator setup, and you will need to provide the name of the tes
 Pavilion Payments representative if you need help obtaining these values.
 
 NOTE: This sample app requires a new VIP Connect session ID for each launch.
+
+
