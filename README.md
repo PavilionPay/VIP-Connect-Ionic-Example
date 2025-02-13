@@ -35,6 +35,15 @@ the VIP Connect SDK inside a Chrome Custom Tab is necessary to provide the best 
 ### Returning to the Android app from VIP Connect
 
 Upon completion or cancellation, VIP Connect will navigate to the address at the `returnURL` param passed during [session creation](https://developer.vippreferred.com/APIS/SDK/create-patron-session) and the Chrome Custom Tab will close. 
+Be sure to update the intent filter located in `AndroidManifest.xml` with the following entries:
+
+```
+              <action android:name="android.intent.action.VIEW" />
+              <category android:name="android.intent.category.DEFAULT" />
+              <category android:name="android.intent.category.BROWSABLE" />
+              <data android:scheme="closevip" android:host="done" />
+```
+In this example, we have chosen the `redirectURL` to be `closevip://done`. In your app, you will need to set the scheme and host to the same value that you supplied to the session creation call.
 
 ## Running the sample app
 
