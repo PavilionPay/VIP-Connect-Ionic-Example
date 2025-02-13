@@ -45,6 +45,9 @@ Be sure to update the intent filter located in `AndroidManifest.xml` with the fo
 ```
 In this example, we have chosen the `redirectURL` to be `closevip://done`. In your app, you will need to set the scheme and host to the same value that you supplied to the session creation call.
 
+## Security 
+It is not recommended to use an embedded browser or web view for OAuth as detailed in section 8.12 of the [Best Current Practice for OAuth 2.0 Native Apps](https://www.rfc-editor.org/rfc/rfc8252.txt).
+
 ## Running the sample app
 
 The `environment.ts` file has fields for you to fill with your operator\'s values. You will need the VIP Connect URL
